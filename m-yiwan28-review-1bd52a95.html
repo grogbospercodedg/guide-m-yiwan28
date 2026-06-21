@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专题 · 亿万28：数字生态与自然生长</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', '宋体', 'SimSun', serif;
+            background-color: #f7f5f1;
+            color: #2c2b28;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background-color: #fefcf8;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+            border-radius: 24px;
+            overflow: hidden;
+            padding: 2.5rem 2rem;
+        }
+
+        /* 首页横幅 — 杂志题头 */
+        .hero {
+            border-bottom: 3px double #ccc9c0;
+            padding-bottom: 2rem;
+            margin-bottom: 2.8rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 4px;
+            color: #3f3b34;
+            margin-bottom: 0.5rem;
+            word-break: break-word;
+        }
+
+        .hero .subhead {
+            font-size: 1rem;
+            color: #7d776e;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 0.3rem;
+            border-top: 1px solid #e2ddd4;
+            display: inline-block;
+            padding-top: 0.6rem;
+        }
+
+        .hero .subhead span {
+            background: #eae6df;
+            padding: 0 0.6rem;
+        }
+
+        /* 背景说明卡片 — 引用块风格 */
+        .background-card {
+            background-color: #f1ede7;
+            border-left: 6px solid #9f978c;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2.8rem;
+            border-radius: 0 16px 16px 0;
+            font-size: 1.05rem;
+        }
+
+        .background-card p {
+            margin-bottom: 0.8rem;
+        }
+
+        .background-card p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .background-card em {
+            font-style: italic;
+            color: #5b554b;
+        }
+
+        /* 三段自然介绍 — 文章排版 */
+        .article-body {
+            margin-bottom: 2rem;
+        }
+
+        .article-body h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #4a443c;
+            margin-bottom: 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #e5dfd6;
+            letter-spacing: 1px;
+        }
+
+        .article-body p {
+            margin-bottom: 1.4rem;
+            text-indent: 2em;
+            font-size: 1.04rem;
+        }
+
+        .article-body p:first-of-type {
+            margin-top: 0.2rem;
+        }
+
+        .highlight-box {
+            background: #f6f2ea;
+            padding: 1.2rem 1.8rem;
+            border-radius: 14px;
+            margin: 1.8rem 0;
+            border: 1px solid #ddd7cd;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .highlight-box p {
+            text-indent: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-box .label {
+            display: inline-block;
+            background: #cbc4b8;
+            color: #2f2c27;
+            font-size: 0.75rem;
+            padding: 0.15rem 0.8rem;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+        }
+
+        .scene-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.6rem 0 1rem 0;
+        }
+
+        .scene-item {
+            background: #f7f3ec;
+            border: 1px solid #e2dbd0;
+            border-radius: 30px;
+            padding: 0.5rem 1.2rem;
+            font-size: 0.95rem;
+            color: #3f3a32;
+            line-height: 1.5;
+        }
+
+        /* FAQ 摘要 — 紧凑但柔和 */
+        .faq-summary {
+            background: #fcfaf6;
+            border-top: 2px dotted #d5cdc1;
+            border-bottom: 2px dotted #d5cdc1;
+            padding: 1.5rem 1.2rem;
+            margin: 2.2rem 0;
+        }
+
+        .faq-summary details {
+            margin-bottom: 0.6rem;
+            border-bottom: 1px solid #ece6dc;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-summary details:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-summary summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #4f4940;
+            padding: 0.2rem 0;
+            letter-spacing: 0.5px;
+        }
+
+        .faq-summary summary::-webkit-details-marker {
+            color: #9b9286;
+        }
+
+        .faq-summary p {
+            margin: 0.6rem 0 0.2rem 1.4rem;
+            font-size: 0.97rem;
+            color: #4b453d;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            margin-top: 2rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #ddd8cf;
+            text-align: center;
+            font-size: 1rem;
+            color: #5f5950;
+            background: #fcfaf6;
+            border-radius: 0 0 24px 24px;
+            padding-bottom: 0.6rem;
+        }
+
+        .footer-note p {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-note a {
+            color: #3a6b5c;
+            text-decoration: none;
+            border-bottom: 2px solid #d9cfc0;
+            font-weight: 500;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #3a6b5c;
+            color: #1f4d40;
+        }
+
+        .footer-note .meta {
+            font-size: 0.85rem;
+            color: #968e82;
+            margin-top: 0.8rem;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1rem;
+                border-radius: 18px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+
+            .hero .subhead {
+                font-size: 0.85rem;
+            }
+
+            .background-card {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .article-body h2 {
+                font-size: 1.35rem;
+            }
+
+            .article-body p {
+                text-indent: 1.5em;
+                font-size: 1rem;
+            }
+
+            .scene-list {
+                gap: 0.6rem;
+            }
+
+            .scene-item {
+                font-size: 0.85rem;
+                padding: 0.3rem 1rem;
+            }
+
+            .faq-summary {
+                padding: 1rem 0.8rem;
+            }
+
+            .footer-note {
+                font-size: 0.93rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .container {
+                padding: 1rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 首页横幅 -->
+    <header class="hero">
+        <h1>亿万28</h1>
+        <div class="subhead"><span>数字 · 生长 · 自然秩序</span></div>
+    </header>
+
+    <!-- 背景说明：杂志专题式引言 -->
+    <div class="background-card">
+        <p>从一粒种子到一片森林，从一次点击到一个生态。<strong>“亿万28”</strong> 所指向的，并非某一个孤立的概念，而是一类围绕数字、节奏与反馈而展开的交互空间。这里的“亿万”不是虚数，它代表着系统中无数微小的选择与累积；而“28”则像是一个天然的周期节律，像月相，像呼吸，像一切循环中蕴含的平衡。</p>
+        <p>本专题尝试以平实的视角，梳理这一主题背后所藏的结构、场景与可能性。以下内容分为三个段落，分别从<em>结构逻辑、日常场景、常见疑问</em>三个侧面展开。我们相信，好的说明不是堆砌，而是让脉络自然浮现。</p>
+    </div>
+
+    <!-- 三段自然介绍 -->
+    <div class="article-body">
+
+        <h2>一、结构与节奏：数字背后的隐性秩序</h2>
+        <p>任何持续运转的系统，都离不开两样东西：规则与弹性。<a href="https://m-yiwan28.com" style="color: #3a6b5c; text-decoration: none; border-bottom: 1px solid #cbc0b2; font-weight: 500;">亿万28</a> 所依托的逻辑，便是在一种既定的框架中容纳动态变化。数字本身不是目的，它更像是刻度——帮助参与者识别位置、衡量距离、感知趋势。正如钟表上的数字并不创造时间，只是映照时间的流动。</p>
+        <p>当我们说“28”时，其实是在谈论一种自然的循环周期。无论是二十八天、二十八步还是二十八次往复，这个数字在多种文化里都带有“完成-重启”的暗示。系统将这种周期融入界面与反馈，让参与者在重复中辨认模式，在变化中发现稳定。所有设计都倾向于克制：不过度干扰，不制造焦虑，而是提供一种可供观察和参与的“数字土壤”。</p>
+
+        <div class="highlight-box">
+            <span class="label">结构速写</span>
+            <p>▪ 基于回合制的状态更新，每个“28”周期后系统进行一轮整合与重置。</p>
+            <p>▪ 数据透明且可回溯：参与者可以查看任意周期的历史记录，用于自行分析。</p>
+            <p>▪ 无强制路径：系统不预设唯一正确的操作方式，只提供工具与显示。</p>
+        </div>
+
+        <h2>二、场景与习惯：从偶然到日常</h2>
+        <p>一个系统是否成立，最终要看它能否嵌入真实的生活缝隙。在体验 <strong>亿万28</strong> 相关功能时，人们常会形成自己独特的节奏：早晨浏览一次概览，午后关注某个节点的变动，晚上安静地对照前后周期的差异。这并非刻意安排，而是因为系统本身带有一种低频率但稳定的“脉冲”——它不要求时刻在线，但每一次进入都能获得新的信息层。</p>
+        <p>以下是一些被参与者反复提及的使用场景，它们共同指向同一个事实：好的数字工具，是让你忘记工具本身，只专注于自己关注的内容。</p>
+
+        <div class="scene-list">
+            <span class="scene-item">📊 周期对照：比较相邻28天的数值分布</span>
+            <span class="scene-item">📌 标记节点：自定义关注位点，系统自动推送变动</span>
+            <span class="scene-item">📈 趋势笔记：在图表旁随手记录个人观察</span>
+            <span class="scene-item">🔁 模式识别：发现重复出现的数字组合或间隔</span>
+        </div>
+
+        <p>这些场景都不是强制功能，而是系统留出的“空隙”。人们可以按照自己的习惯去使用，也可以完全不去触碰，只看最表层的显示。这种自由度，恰好让 <strong>亿万28</strong> 更像一个环境而非一个工具。</p>
+
+        <h2>三、常见疑问摘要</h2>
+        <div class="faq-summary">
+            <details>
+                <summary>「亿万28」适合完全没有经验的人吗？</summary>
+                <p>是的。界面的信息层级非常扁平，主要数字区域都有简要的图例说明。新参与者只需先观察一两个完整周期（约56天），便能自然理解主要模块之间的联系。没有复杂的教程或考核，一切从看开始。</p>
+            </details>
+            <details>
+                <summary>系统中的数字是随机生成的吗？</summary>
+                <p>并非完全随机，也非完全确定。它采用一种混合算法：一部分基于历史状态的偏移，一部分引入环境熵值（如时间戳微秒、区块信息等）。这样既避免了机械重复，也避免了不可理解的混沌。每一个数字都可以在系统内部找到其生成依据。</p>
+            </details>
+            <details>
+                <summary>我需要投入大量时间才能跟上节奏吗？</summary>
+                <p>不需要。一个周期28天，每天的变化通常是微量的。多数参与者每日花费3-10分钟查看与记录，周末可能会稍多一些。系统本身没有“落后”的概念，随时可以回到上次离开的位置继续。</p>
+            </details>
+            <details>
+                <summary>是否存在作弊或操控的可能？</summary>
+                <p>系统的核心规则是公开且由程序自动执行的。任何对数据的修改都会留下可追溯的日志。此外，周期性的重置机制使得短期的局部干扰无法累积成结构性优势。从设计上，它更倾向于鼓励长期观察而不是短期博弈。</p>
+            </details>
+        </div>
+
+        <p style="margin-top: 1.8rem; text-indent: 2em;">以上三个段落分别从结构、场景与疑问出发，希望能够帮助读者更清晰地理解 <strong>亿万28</strong> 所代表的数字生态。它不是一个需要征服的关卡，而是一个可以慢慢走进去的领域。</p>
+
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <footer class="footer-note">
+        <p>如果你对这个围绕周期与累积展开的数字世界产生兴趣，不妨直接前往 <a href="https://m-yiwan28.com">亿万28</a>，花几分钟浏览当前的周期状态。没有注册门槛，没有强制引导，只有一片安静陈列着数字与变化的界面。</p>
+        <p class="meta">— 专题页面 · 基于公开信息整理 —</p>
+    </footer>
+
+</div>
+</body>
+</html>
